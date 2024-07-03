@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  overflow: hidden;
 }
 
 body {
@@ -12,7 +13,138 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(0deg, #7978ae 0%, #393953 78%, #323248 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* https://lh3.googleusercontent.com/ka_5IYJDRkXZnbptxq64LPuggGL5FM8gnpJlsuSiOQh4b39kMkiRbVfX8iK8bjMg5SLkdfoix09P60wyFjN2=w681-h614 */
+  background: url("https://i.postimg.cc/c1Q3njM0/bg2.jpg");
+  /*   background-color:black; */
+  background-size: cover;
+  animation: animateBg 50s linear infinite;
+}
+
+@keyframes animateBg {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1);
+  animation: animate 3s linear infinite;
+}
+span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, #fff, transparent);
+}
+@keyframes animate {
+  0% {
+    transform: rotate(315deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(315deg) translateX(-1000px);
+    opacity: 0;
+  }
+}
+span:nth-child(1) {
+  top: 0;
+  right: 0;
+  left: initial;
+  animation-delay: 0s;
+  animation-duration: 1s;
+}
+span:nth-child(2) {
+  top: 0;
+  right: 80px;
+  left: initial;
+  animation-delay: 0.2s;
+  animation-duration: 3s;
+}
+span:nth-child(3) {
+  top: 80;
+  right: 0px;
+  left: initial;
+  animation-delay: 0.4s;
+  animation-duration: 2s;
+}
+span:nth-child(4) {
+  top: 0;
+  right: 180px;
+  left: initial;
+  animation-delay: 0.6s;
+  animation-duration: 1.5s;
+}
+span:nth-child(5) {
+  top: 0;
+  right: 400px;
+  left: initial;
+  animation-delay: 0.8s;
+  animation-duration: 2.5s;
+}
+span:nth-child(6) {
+  top: 0;
+  right: 600px;
+  left: initial;
+  animation-delay: 1s;
+  animation-duration: 3s;
+}
+span:nth-child(7) {
+  top: 300px;
+  right: 0px;
+  left: initial;
+  animation-delay: 1.2s;
+  animation-duration: 1.75s;
+}
+span:nth-child(8) {
+  top: 0px;
+  right: 700px;
+  left: initial;
+  animation-delay: 1.4s;
+  animation-duration: 1.25s;
+}
+span:nth-child(9) {
+  top: 0px;
+  right: 1000px;
+  left: initial;
+  animation-delay: 0.75s;
+  animation-duration: 2.25s;
+}
+span:nth-child(9) {
+  top: 0px;
+  right: 450px;
+  left: initial;
+  animation-delay: 2.75s;
+  animation-duration: 2.75s;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
 #Heading1 {
@@ -23,15 +155,17 @@ body {
   background-clip: text;
   text-fill-color: transparent;
   font-weight: 500;
+  margin-bottom: 20px; /* Space below the heading */
 }
 
 .container {
   position: relative;
   width: 400px;
-  height: 550px;
+  height: 700px;
   background: linear-gradient(to bottom, #2c28cd 0%, #dabdd3 100%);
   border-radius: 20px;
   padding: 35px;
+  color: white;
 }
 
 .search-box {
@@ -53,6 +187,12 @@ body {
   padding: 0px 48px 0px 30px;
   font-weight: 200;
   font-size: 16px;
+  color: #dabdd3;
+}
+
+#search::placeholder {
+  color: white;
+  opacity: 0.5; /* Ensure the placeholder is fully opaque */
 }
 
 .search-box button {
@@ -67,4 +207,39 @@ body {
   color: white;
   padding: 0px 40px 0px 5px;
   cursor: pointer;
+}
+
+.weather-box {
+  text-align: center;
+  margin: 40px 0px;
+}
+
+.weather-box img {
+  width: 90%;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)); /* Drop shadow effect */
+  margin-bottom: -60px; /* Use a more negative margin to move the image up */
+  transform: translateY(-50px); /* Move the image up */
+}
+
+.weather-box .temperature {
+  position: relative;
+  font-size: 100px;
+  line-height: 1;
+  font-weight: 700;
+  margin-left: 0px;
+}
+
+.weather-box .country {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.celcius {
+  position: absolute;
+  font-size: 35px;
+  margin-left: 4px;
+}
+
+.weather-box .weather-status {
+  opacity: 0.6;
 }
