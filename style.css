@@ -160,8 +160,8 @@ span:nth-child(9) {
 
 .container {
   position: relative;
-  width: 400px;
-  height: 700px;
+  width: 500px;
+  height: 800px;
   background: linear-gradient(to bottom, #2c28cd 0%, #dabdd3 100%);
   border-radius: 20px;
   padding: 35px;
@@ -187,7 +187,7 @@ span:nth-child(9) {
   padding: 0px 48px 0px 30px;
   font-weight: 200;
   font-size: 16px;
-  color: #dabdd3;
+  color: white;
 }
 
 #search::placeholder {
@@ -221,6 +221,17 @@ span:nth-child(9) {
   transform: translateY(-50px); /* Move the image up */
 }
 
+.weather-box .weather {
+  text-align: center;
+}
+
+.temperature {
+  font-size: 100px;
+  line-height: 1;
+  font-weight: 700;
+  padding-left: 40px;
+}
+
 .weather-box .temperature {
   position: relative;
   font-size: 100px;
@@ -234,12 +245,41 @@ span:nth-child(9) {
   font-weight: 400;
 }
 
-.celcius {
+.weather-details {
+  display: flex;
   position: absolute;
-  font-size: 35px;
-  margin-left: 4px;
+  bottom: 45px;
+  width: 100%;
+  left: 0;
+  padding: 0 30px;
+  justify-content: space-between;
 }
 
-.weather-box .weather-status {
-  opacity: 0.6;
+.weather-details .wind,
+.weather-details .Humidity {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  padding: 0 10px; /* Adjust this value to increase the space */
+}
+
+.weather-details i {
+  font-size: 90px;
+  filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.1));
+  margin-top: 30px;
+}
+
+.weather-details .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3px; /* Adjust this value to increase space between icon and text */
+}
+
+.weather-details .infro-wind {
+  text-align: center;
+}
+
+.infro-wind p {
+  font-size: 30px;
 }
